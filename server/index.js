@@ -18,14 +18,16 @@ app.use('/api/v1/post', postRoutes);
 app.use('/api/v1/dalle', dalleRoutes);
 
 app.get('/', async(req,res)=>{
-res.send('Hello from DAll-E')
+res.status(200).json({
+    message: 'Hello from DAll-E' ,
+})
 })
 
 
 const startServer = async ()=>{
     try {
         connectDB(process.env.MONGODB_URL)
-        app.listen(8080 , ()=>{console.log('server is running on port8080')})
+        app.listen(8080 , ()=>{console.log('server is running on port 8080')})
 
     }
     
