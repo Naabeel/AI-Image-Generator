@@ -2,6 +2,11 @@ import express from 'express';
 import  * as dotenv from 'dotenv';
 import cors from 'cors';
 
+import connectDB from './mongodb/connect.js';
+import postRoutes from './routes/postRoutes.js';
+import dalleRoutes from './routes/dalleRoutes.js';
+
+
 dotenv.config();
 
 
@@ -18,10 +23,20 @@ res.send('Hello from DAll-E')
 
 
 const startServer = async ()=>{
+    try {
+        connectDB(process.env.MONGODB_URL)
+        app.listen(8080 , ()=>{console.log('server is running on port http://localhost:8080')})
 
-    app.listen(8080 , ()=>{console.log('server is running on port http://localhost:8080')})
+    }
+    
+    
+    
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
 
-}
+    startServer();
 
-startServer();
-
+   
