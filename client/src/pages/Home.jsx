@@ -27,7 +27,7 @@ const Home = () => {
 
     try {
       const response = await fetch('https://ai-img-generator-mnqx.onrender.com/api/v1/post', {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
